@@ -5,8 +5,6 @@ A small and simple example of login with httpBasic and formLogin :stuck_out_tong
 
 2. Copy the password generated in the terminal.
 
-3. Create the user.
-
 4. Access the service in the port 8080
 
-5. Make a login and logout and be happy :)
+5. Make a login with admin and logout and be happy :)
