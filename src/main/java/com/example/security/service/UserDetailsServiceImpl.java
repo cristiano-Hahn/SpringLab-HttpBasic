@@ -1,4 +1,4 @@
-package com.example.security.configuration;
+package com.example.security.service;
 
 import com.example.security.model.User;
 import com.example.security.repository.UserRepository;
@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MyUserDetailsService implements UserDetailsService {
+public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Autowired
     UserRepository userRepository;
@@ -18,6 +18,6 @@ public class MyUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
 
-        return new MyUserDetails(user);
+        return new UserDetailsImpl(user);
     }
 }

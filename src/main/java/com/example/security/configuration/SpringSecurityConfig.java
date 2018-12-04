@@ -1,8 +1,8 @@
 package com.example.security.configuration;
 
+import com.example.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -24,7 +24,7 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private WebApplicationContext applicationContext;
-    private MyUserDetailsService userDetailsService;
+    private UserDetailsServiceImpl userDetailsService;
     @Autowired
     private AuthenticationSuccessHandlerImpl successHandler;
     @Autowired
@@ -32,7 +32,7 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @PostConstruct
     public void completeSetup() {
-        userDetailsService = applicationContext.getBean(MyUserDetailsService.class);
+        userDetailsService = applicationContext.getBean(UserDetailsServiceImpl.class);
     }
 
     @Override

@@ -1,4 +1,4 @@
-package com.example.security.configuration;
+package com.example.security.service;
 
 import com.example.security.model.User;
 import org.springframework.security.core.GrantedAuthority;
@@ -6,11 +6,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-public class MyUserDetails implements UserDetails {
+public class UserDetailsImpl implements UserDetails {
 
     private User user;
 
-    public MyUserDetails(User user) {
+    public UserDetailsImpl(User user) {
         this.user = user;
     }
 
@@ -31,21 +31,21 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return !user.getAccountExpired();
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return !user.getAccountLocked();
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return !user.getCredentialsExpired();
     }
 
     @Override
     public boolean isEnabled() {
-        return true;
+        return user.getEnabled();
     }
 }

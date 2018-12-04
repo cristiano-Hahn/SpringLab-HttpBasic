@@ -10,6 +10,6 @@ public class SecurityApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SecurityApplication.class, args);
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		System.out.println("test password encoded: ".concat(encoder.encode("test")));
+		System.out.println("'admin' password encoded: ".concat(encoder.encode("admin")));
 	}
 }
