@@ -3,6 +3,7 @@ package com.example.security.configuration;
 import com.example.security.service.UserDetailsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,7 +20,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-//@ComponentScan("com.example.security")
+@ComponentScan("com.example.security")
 public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Autowired
@@ -60,6 +61,7 @@ public class SpringSecurityConfig  extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
+                .successHandler(successHandler)
                 .and()
                 .httpBasic();
     }

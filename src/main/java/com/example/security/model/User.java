@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Data
@@ -32,6 +33,9 @@ public class User {
 
     @Column
     private Boolean credentialsExpired;
+
+    @Column
+    private Date lastLogin;
 
 
 }
